@@ -1,33 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
-  <head>
-    <meta charset="utf-8" />
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html  ng-app="app">
+<head>
+ <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    
+  <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link rel="icon" href="favicon.ico" />
+  <title>i-Bank</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="/dist/css/skins/skin-green.min.css">
+  
+   <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+       
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+     
+    </style>
 
-    <title>Admin</title>
+      <script src="custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="custom.css">
+  
+ 
+	
+  <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjNOevCH2lr1DIMVV5HiM6lSVBVhmUsZc&callback=initMap">
+    </script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Bootstrap theme -->
-    <link href="lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <!-- Angular CSP-->
-    <link href="lib/angular/css/angular-csp.css" rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
+</head>
+ 
+<body class="hold-transition skin-green sidebar-mini">
+<div class="wrapper">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="lib/html5shiv/html5shiv.min.js"></script>
-      <script src="lib/respond/respond.min.js"></script>
-    <![endif]-->
+  <!-- Main Header -->
+  <header class="main-header">
 
+  
+    <!-- Logo -->
+<a href="#" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>i</b>Bank</span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>i-Bank</b></span>
+			</a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <!-- Menu toggle button -->
+           
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+ 
+ 
     <!-- require -->
     <script src="lib/require/require.js"></script>
+ 
 
     <!-- angularjs -->
     <link href="lib/angular/css/angular-csp.css" rel="stylesheet" />
@@ -36,61 +101,106 @@
     <script src="lib/angular/js/angular-resource.js"></script>
     <script src="lib/angular/js/angular-ui-router.js"></script>
     <script src="lib/angular/js/angular-ui-bootstrap-tpls.js"></script>
-
+    
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/nav-controller.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-  </head>
+    <script src="js/admin-app.js"></script>
+    <script src="js/admin-nav-controller.js"></script>
+    <script src="js/admin-controllers.js"></script>
+    <script src="js/admin-services.js"></script>
+    
+    
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="nav">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#/" ng-bind="title"></a>
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/avatarMen.png" class="img-circle" alt="User Image">
         </div>
-        <script type="text/ng-template" id="nav-item.html">
-          <span ng-if="page.name && !page.url">{{page.name}}</span>
-          <a ng-if="page.name && page.url && !(page.subPages && page.subPages.length)" href="{{page.url}}">{{page.name}}</a>
-          <a ng-if="page.name && page.url && page.subPages && page.subPages.length" href="{{page.url}}" data-toggle="dropdown" role="button" aria-expanded="false"
-          class="dropdown-toggle">{{page.name}} <span class="caret"></span>
-          </a>
-          <ul ng-if="page.subPages && page.subPages.length" class="dropdown-menu" role="menu">
-            <li ng-class="{'divider': !page.name && !page.url, 'dropdown-header': page.name && !page.url, active: isUrl(page.url)}" ng-repeat="page in page.subPages" ng-include="'nav-item.html'">
-            </li>
-          </ul>
-        </script>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ng-repeat="page in pages" ng-class="{active: isUrl(page.url)}" ng-include="'nav-item.html'">
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
+        <div class="pull-left info">
+          <p id="stage"></p>
+          <!-- Status -->
+        </div>
       </div>
-    </nav>
+ 
+      <!-- /.search form -->
 
-    <div class="ui-view-container">
-      <div ui-view>
-        <!-- default content can go here but there will be a flicker on some pages loading -->
-      </div>
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">Menu</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Home</span></a></li>
+         
+        
+        <li><a href="#/adminboard" role="button"><i class="fa fa-link"></i> <span>adminboard</span></a></li>
+         <li><a href="#/adminboard2" role="button"><i class="fa fa-link"></i> <span>adminboard2</span></a></li>
+        
+         
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+ 
+  <div class="content-wrapper"  id="map"  ui-view>
+    <!-- Content Header (Page header) -->
+    
+ 
+   
+    </section> 
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      
     </div>
+    <!-- Default to the left -->
+    <strong>iBank &copy; 2017 <a href="#">iBank</a>.</strong> All rights reserved.
+  </footer>
+ 
+        <!-- /.control-sidebar-menu -->
 
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+ 
+<!-- ./wrapper -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- REQUIRED JS SCRIPTS -->
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="lib/assets/js/ie10-viewport-bug-workaround.js"></script>
-
-  </body>
+<!-- jQuery 3 -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+	 
+	 <script type = "text/javascript" language = "javascript">
+         $(document).ready(function() {
+			 
+               $.getJSON('/producer/signIn?username=test', function(jd) {
+                  $('#stage').html(jd.name +  '&nbsp;' + jd.surname ); 
+               });
+            
+				
+         });
+      </script>
+      
+	 
+</body>
 </html>
