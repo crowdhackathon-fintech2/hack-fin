@@ -48,30 +48,18 @@
 			.state('business1',{
 	        url:'/business1',
 	        templateUrl: viewsPrefix + 'business1.html',
-	        controller:'ShipwreckListController'
+	        controller:'BusinessListController'
 	    }).state('business2',{
 	        url:'/business2',
 	        templateUrl: viewsPrefix + 'business2.html',
-	        controller:'ShipwreckListController'
+	        controller:'BusinessListController'
 	    }).state('business3',{
 	        url:'/business3',
 	        templateUrl: viewsPrefix + 'business3.html',
-	        controller:'ShipwreckListController'
+	        controller:'BusinessListController'
 	    })
 	    
-	    .state('viewShipwreck',{
-	       url:'/shipwrecks/:id/view',
-	       templateUrl: viewsPrefix + 'shipwreck-view.html',
-	       controller:'ShipwreckViewController'
-	    }).state('newShipwreck',{
-	        url:'/shipwrecks/new',
-	        templateUrl: viewsPrefix + 'shipwreck-add.html',
-	        controller:'ShipwreckCreateController'
-	    }).state('editShipwreck',{
-	        url:'/shipwrecks/:id/edit',
-	        templateUrl: viewsPrefix + 'shipwreck-edit.html',
-	        controller:'ShipwreckEditController'
-	    })
+	    
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
 		function($rootScope, $timeout) {
