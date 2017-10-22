@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nbg.hackfin.HackfinApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.714 sec - in com.nbg.hackfin.HackfinApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.335 sec - in com.nbg.hackfin.HackfinApplicationTests
