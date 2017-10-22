@@ -34,7 +34,6 @@ public class LoginControllerImpl implements LoginController {
 		   } else {
 			   return new RedirectView("/pages/login.html");
 		   } 
-		  
 	   }
 	 
 }
