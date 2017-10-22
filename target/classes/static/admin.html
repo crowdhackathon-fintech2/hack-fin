@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html   >
+<html>
 <head>
  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     
@@ -102,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
         <li  ><a id="admin1" href="#" role="button" onclick="on_click(1);"><i class="fa fa-link"></i> <span>Rules</span></a></li>
-        <li ><a id="admin2" href="#" role="button" onclick="on_click(2);"><i class="fa fa-link"></i> <span>___</span></a></li>
+        <li ><a id="admin2" href="#" role="button" onclick="on_click(2);"><i class="fa fa-link"></i> <span>Test crud</span></a></li>
           
         <li><a href="/" role="button"><i class="fa fa-link"></i><span>Logout</span></a></li>
            
@@ -138,14 +134,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#some-menu').load('admin/Rules.html');   
+    $('#some-menu').load('admin/Test.html');   
 });
  
 function on_click( val ) {
 	if ( val == '1') {
 		 $('#some-menu').load( 'admin/Rules.html' );
 	} else if ( val == '2') {
-		 $('#some-menu').load( 'admin/adminBoard2.html' );
+		 $('#some-menu').load( 'admin/Test.html' );
 	}
 }
 

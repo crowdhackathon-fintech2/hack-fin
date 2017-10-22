@@ -1,80 +1,239 @@
 <section class="content-header">
+ <div class="col-md-1">
+ </div>
 	<h1>
-	Rules <small></small>
+		Rules <small></small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
 		<li class="active">Rules</li>
 	</ol>
 </section>
-<br>
+<br> 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-<div class="row" >
-        <!-- left column -->
-           <div class="col-md-11" >
-           </div>
-        <!--/.col (left) -->
-        <!-- right column -->
-        <div class="col-md-12" >
+<div class="row">
+ <div class="col-md-1">
+ </div>
+       <div class="col-md-8">
           <!-- Horizontal Form -->
-          <div class="box box-warning">
+          <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal">
-              
-               <div class="box-footer"> 
-                <button type="button" class="btn btn-primary pull-right"  >New</button>
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="rules" class="col-sm-2 control-label">Rule</label>
+
+                  <div class="col-sm-10">
+                   <select id="rule" class="form-control select2" style="width: 100%;">
+                  		<option value="Rule 1"  selected="selected">Rule 1</option>
+                   		<option value="Rule 2"   >Rule 2</option>
+                   		<option value="Rule 3"   >Rule 3</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Users</label>
+
+                  <div class="col-sm-10">
+                    <select name="user" id="user" class="form-control select2" style="width: 100%;">
+                 	  <option value="User 1" selected="selected">User 1</option>
+                 	  <option value="User 2" >User 2</option>
+                 	  <option value="User 3" >User 3</option>
+                 	  <option value="User 4" >User 4</option>
+                  </select>
+                  </div>
+                </div>
+                 
               </div>
-                
-                <div class="box-body">
-									<table id="	" class="table table-bordered table-hover">
-										<thead>
-											<tr><th>id</th>
-												<th>Rules</th>
-												<th>Users</th>
-												 <th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-										<tr>	<td>1</td>
-												<td>Rule1</td>
-												<td>User1</td>
-												 <td>
-												 	<button class="btn btn-warning">Edit</button>
-												 	 <button class="btn btn-danger">Delete</button>
-												 </td>
-
-											</tr>
-											 <tr>
-											 	<td>2</td>
-												<td>Rule1</td>
-												<td>User2</td> 
-												<td><button class="btn btn-warning">Edit</button>
-												 	 <button class="btn btn-danger">Delete</button>
-												 </td>
-											</tr>
-										</tbody>
-
-									</table>
-								</div>
-                
-                
-                
-               
               <!-- /.box-body -->
-             
+              <div class="box-footer">
+                 <button type="button" class="btn btn-info pull-right" onclick="productAddToTable()">Add</button>
+                 
+              </div>
               <!-- /.box-footer -->
             </form>
           </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-           
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
-      </div>
-</body>
-</html>
+</div>
+ </div>
+ 
+ <div class="row">
+ <div class="col-md-1"></div>
+       <div class="col-md-8">
+          <!-- Horizontal Form -->
+          <div class="box box-warning">
+            <div class="box-header with-border">
+               <h3 class="box-title"> Rule List </h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="box-body">
+           <table id="productTable"
+        		class="table table-bordered
+            	   table-condensed table-striped">
+		  <thead>
+		    <tr>
+		      <th>A/A</th>
+		      <th>Rule</th>
+		      <th>Users</th>
+		      <th>Action</th> 
+		    </tr>
+		  </thead>
+		</table>
+</div> 
+</form>
+</div>
+</div>
+</div>
+ 
+<script type="text/javascript">
+$(document).ready(function() {
+	 productsAdd();   
+});
+ 
+var id =1;
+function productUpdate() {
+	  if ($("#rule").val() != null &&
+	      $("#rule").val() != '') {
+	    // Add product to Table
+	    productAddToTable();
+	    // Clear form fields
+	    formClear();
+	    // Focus to product name field
+	    $("#rule").focus();
+	  }
+	}
+
+function productsAdd() {
+	 
+  // First check if a <tbody> tag exists, add one if not
+  if ($("#productTable tbody").length == 0) {
+    $("#productTable").append("<tbody></tbody>");
+  }
+    
+  // Append product to the table
+  $("#productTable tbody").append(
+		  "<tr><td>" + id + "</td>" +
+    "<td>Rule 1	</td>" +
+      "<td>User 2</td>" +
+      "<td>" +
+      "<button type='button' " +
+              "onclick='productDelete(this);' " +
+              "class='btn btn-danger'>" +
+              "<span class='glyphicon  glyphicon-remove' >Delete" +
+             
+      "</button>" +
+    "</td>" +
+    "</tr>"
+    );
+ 	id++;
+}
+
+function productAddToTable() {
+	  // First check if a <tbody> tag exists, add one if not
+	  if ($("#productTable tbody").length == 0) {
+	    $("#productTable").append("<tbody></tbody>");
+	  }
+	      
+	  // Append product to the table
+	  $("#productTable tbody").append(
+	      "<tr>" +
+	      "<td>" + id + "</td>" +
+	        "<td>" + $("#rule").val() + "</td>" +
+	        "<td>" + $("#user").val() + "</td>" +
+	        "<td>" + $("#url").val() + "</td>" +
+	      "</tr>"
+	      );
+	  
+	  id++;
+	}
+function productAddToTable() {
+		  // First check if a <tbody> tag exists, add one if not
+		  if ($("#productTable tbody").length == 0) {
+		    $("#productTable").append("<tbody></tbody>");
+		  }
+		      
+		  // Append product to the table
+		  $("#productTable tbody").append(
+		    "<tr>" +
+		    "<td>" + id + "</td>" +
+		      "<td>" + $("#rule").val() + "</td>" +
+		      "<td>" + $("#user").val() + "</td>" +
+		     
+		      "<td>" +
+		        "<button type='button' " +
+		                "onclick='productDelete(this);' " +
+		                "class='btn btn-danger'>" +
+		                "<span class='glyphicon  glyphicon-remove' >Delete" +
+		               
+		        "</button>" +
+		      "</td>" +
+		    "</tr>"
+		  );
+		  id++;
+		}
+function productBuildTableRow() {
+	  var ret =
+	  "<tr>" +
+	    "<td>" +
+	      "<button type='button' " +
+	              "onclick='productDisplay(this);' " +
+	              "class='btn btn-default'>" +
+	              "<span class='glyphicon glyphicon-edit' />" +
+	      "</button>" +
+	    "</td>" +
+	    "<td>" + $("#rule").val() + "</td>" +
+	    "<td>" + $("#user").val() + "</td>" +
+ 
+	    "<td>" +
+	      "<button type='button' " +
+	              "onclick='productDelete(this);' " +
+	              "class='btn btn-default'>" +
+	              "<span class='glyphicon glyphicon-remove' />" +
+	      "</button>" +
+	    "</td>" +
+	  "</tr>"
+	      
+	  return ret;
+	}
+function productBuildTableRow(id) {
+	  var ret =
+	  "<tr>" +
+	    "<td>" +
+	      "<button type='button' " +
+	              "onclick='productDisplay(this);' " +
+	              "class='btn btn-default' " +
+	              "data-id='" + id + "'>" +
+	              "<span class='glyphicon glyphicon-edit' />" +
+	      			"</button>" +
+	    			"</td>" +
+	    		"<td>" + id + "</td>" +
+	    		"<td>" + $("#rule").val() + "</td>" +
+	    		"<td>" + $("#user").val() + "</td>" +
+	    		"<td> </td>" +
+	    		"<td>" +
+	      "<button type='button' " +
+	              "onclick='productDelete(this);' " +
+	              "class='btn btn-default' " +
+	              "data-id='" + id + "'>" +
+	              "<span class='glyphicon glyphicon-remove' />" +
+	      "</button>" +
+	    "</td>" +
+	  "</tr>"
+	      
+	  return ret;
+	}
+function productDelete(ctl) {
+	  $(ctl).parents("tr").remove();
+	  id--;
+	}
+</script>
+
+
+
+  

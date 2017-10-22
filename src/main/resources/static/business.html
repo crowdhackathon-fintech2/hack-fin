@@ -101,8 +101,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
-        <li  ><a id="business1" href="#" role="button" onclick="on_click(1);"><i class="fa fa-link"></i> <span>Chart Rules</span></a></li>
-        <li ><a id="business2" href="#" role="button" onclick="on_click(2);"><i class="fa fa-link"></i> <span>Menu 2</span></a></li>
+        <li  ><a id="business1"  role="button" onclick="on_click(1);"><i class="fa fa-link"></i> <span>Chart Rules</span></a></li>
+        <li ><a id="business2"   role="button" onclick="on_click(2);"><i class="fa fa-link"></i> <span>Menu 2</span></a></li>
           
         <li><a href="/" role="button"><i class="fa fa-link"></i><span>Logout</span></a></li>
            
@@ -145,7 +145,7 @@ function on_click( val ) {
 	if ( val == '1') {
 		 $('#some-menu').load( 'business/business1.html' );
 	} else if ( val == '2') {
-		 $('#some-menu').load( 'business/business2.html' );
+		 $('#some-menu').load( 'business/Rules.html' );
 	}
 }
 
