@@ -26,12 +26,14 @@ public class LoginControllerImpl implements LoginController {
 		   
 		   if ( loginForm.getUsername().equals("admin")) {
 			   return new RedirectView("/admin.html");
-		   } if ( loginForm.getUsername().equals("client")) {
+		   } else if ( loginForm.getUsername().equals("client")) {
 			   return new RedirectView("/client.html");
-		   } else {
-			   return new RedirectView("/business.html");
-		   }
 		   
+		   } else if ( loginForm.getUsername().equals("business")) {
+			   return new RedirectView("/business.html");
+		   } else {
+			   return new RedirectView("/pages/login.html");
+		   } 
 		  
 	   }
 	 
